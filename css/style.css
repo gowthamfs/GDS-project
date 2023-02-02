@@ -1,0 +1,223 @@
+/** Hash Configs **/
+
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700;800&family=Noto+Sans:wght@400;500;600;700;800&family=Nunito:wght@200&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+:root {
+    --primaryColor: ;
+    --secondaryColor: ;
+    --accentColor: ;
+
+    --primaryColorLight: ;
+    --secondaryColorLight: ;
+    --accentColorLight: ;
+
+    --primaryColorDark: ;
+    --secondaryColorDark: ;
+    --accentColorDark: ;
+
+    --fontColor: ;
+    --fontDark: ;
+    --fontWhite: ;
+
+    --heroFont: ;
+    --headingFont: ;
+    --bodyFont: ;
+
+    --logoSize: 100px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    /* background: linear-gradient(-45deg, #f59a7f, #e89cb9, #84bbeb, #8defd8);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite; */
+	height: 100vh;
+    scroll-behavior: smooth;
+    overscroll-behavior: none;
+}
+
+/* @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}  */
+
+.mainGrid{
+    overflow: hidden;
+}
+
+.mainGrid section{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: auto;
+    grid-row: 1;
+    position: relative;
+    padding-right: 10rem;
+    border-right: 1px solid #000;
+    margin: 30px 0;
+    
+}
+
+section * img{
+    border-radius: 10px;
+    width: 45%;
+    max-width:300px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    
+}
+section * h3{
+    font-size: 20px;
+    
+}
+section * span{
+    opacity: .8;
+    color: rgb(118, 87, 87);
+    font-size: 27px;
+
+}
+section * p{
+    font-size: 15px;
+    line-height: 2.6rem;
+    opacity: .5;
+}
+
+.highlights {
+    position: relative;
+}
+
+.highlights .pageNum {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    font-size: 160px;
+    opacity: 25%;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+
+}
+
+section .innerGrid:nth-child(2){
+    grid-template-rows: .5fr .1fr .4fr;
+}
+
+.highlights a{
+    text-align: center;
+    z-index: 1;
+    padding: 2rem 4.5rem;
+    border-radius: 10px;
+    background: transparent;
+    color: rgb(87, 87, 87);
+    cursor: pointer;
+    font-size: 1.5rem;  
+    position: relative; 
+}
+
+.highlights a::before{
+    content: '';
+    width: 30px;
+    height: 3px;
+    background: #000;
+    position: absolute;
+    top:48%;
+    left: 0;
+    opacity: .5;
+}
+
+
+@media only screen and (max-width:968px){
+
+    .mainGrid{
+        overflow-y: scroll;
+    }
+
+    .mainGrid section{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: auto;
+        gap:2rem;
+        padding: 2rem;
+        border: none;
+        
+        
+    }
+    .outerGrid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        /* grid-template-areas: "div1" "div2"; */
+        text-align: center;
+       
+    }
+    .outerGrid img{
+        margin: auto;
+        width: 28%;
+        min-width: 200px;
+    }
+
+    .highlights a{
+        padding: 1.5rem 4rem;
+        font-size: 1.3rem;    
+    }
+
+    .highlights a::before{
+        content: '';
+        width: 25px;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        top:48%;
+        left: 0;
+        opacity: .5;
+    }
+
+    .pageNum {
+        display: none
+    }
+    
+
+    /* section a{
+        position: absolute;
+        top:95%;
+        left:50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+    } */
+    /* .outerGrid #div1{
+        grid-area: div1;
+    }
+    .outerGrid #div2{
+        grid-area: div2;
+    } */
+}
+
+@media only screen and (max-width:560px) {
+    .mainGrid section{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: auto;
+        gap:2rem;
+        padding: 2rem; 
+        
+    }
+    .outerGrid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        /* grid-template-areas: "div1" "div2"; */
+        text-align: center;
+    }
+}
+

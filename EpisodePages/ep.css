@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mainGrid{
+   overflow: hidden;
+}
+
+.mainGrid section{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto;
+    grid-row: 1;
+    position: relative;
+}
+
+
+#content p{
+    padding: 0 2rem;
+    font-size: 12.5px;
+}
+

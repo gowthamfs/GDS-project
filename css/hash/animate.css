@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/*
+ * Hash#Animate  v0.6.0 
+ * Copyright 2022 HashHackCode, LLP.
+ */
+
+ /** Responsive **/
+
+/* lg screen*/
+@media (max-width: 1012px) {
+}
+ 
+/* md screen*/
+@media (max-width: 768px) {
+}
+ 
+/* sm screen*/
+@media (max-width: 577px) {
+}
