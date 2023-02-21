@@ -21,7 +21,6 @@ body {
     display: grid;
     grid-template-rows: auto;
     position: relative;
-    width:100%;
 }
 .outerGrid-hz, .innerGrid-hz{
     display: grid;

@@ -33,13 +33,22 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  } */
+
 body {
     /* background: linear-gradient(-45deg, #f59a7f, #e89cb9, #84bbeb, #8defd8);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite; */
-	height: 100vh;
-    scroll-behavior: smooth;
-    overscroll-behavior: none;
+	/* height: 100vh; */
+    /* scroll-snap-type: x mandatory; */
+    /* scroll-behavior: smooth; */
+    /* overflow-x: hidden; */
+    /* width: 100vw; */
+    /* overscroll-behavior: none; */
 }
 
 /* @keyframes gradient {
@@ -54,20 +63,46 @@ body {
 	}
 }  */
 
+
 .mainGrid{
-    overflow: hidden;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    width: 100vw;
+
 }
+
+
 
 .mainGrid section{
     width: 100vw;
+    scroll-snap-align: start;
     display: grid;
     grid-template-columns: auto;
     grid-row: 1;
     position: relative;
     padding-right: 10rem;
-    border-right: 1px solid #000;
-    margin: 30px 0;
-    
+    margin: 20px 0;
+}
+
+.mainGrid .button i:nth-child(1){
+    position: fixed;
+    left: 5%;
+    bottom: 10%;
+    font-size: 25px;
+    cursor: pointer;
+}
+.mainGrid .button i:nth-child(2){
+    position: fixed;
+    right: 5%;
+    bottom: 10%;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.mainGrid .mobBtn i{
+    opacity: 0;
 }
 
 section * img{
@@ -75,11 +110,33 @@ section * img{
     width: 45%;
     max-width:300px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(1px);
+    transform: translateX(-50%);
+    position: relative;
 }
+
+
+.show img{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
+
 section * h3{
     font-size: 20px;
-    
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(1px);
+    transform: translateY(-50%);    
+}
+.show h3{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
 }
 section * span{
     opacity: .8;
@@ -90,11 +147,15 @@ section * span{
 section * p{
     font-size: 15px;
     line-height: 2.6rem;
-    opacity: .5;
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(1px);
+    transform: translateY(-25%);
 }
-
-.highlights {
-    position: relative;
+.show p{
+    opacity: .5;
+    transform: translateY(0);
+    filter: blur(0);
 }
 
 .highlights .pageNum {
@@ -102,122 +163,130 @@ section * p{
     top: 15%;
     left: 5%;
     font-size: 160px;
-    opacity: 25%;
+    opacity: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(0, 0, 0);
-
+    opacity: 25%;
 }
+
 
 section .innerGrid:nth-child(2){
     grid-template-rows: .5fr .1fr .4fr;
 }
 
 .highlights a{
-    text-align: center;
-    z-index: 1;
-    padding: 2rem 4.5rem;
-    border-radius: 10px;
-    background: transparent;
+    padding: 1rem;
     color: rgb(87, 87, 87);
-    cursor: pointer;
     font-size: 1.5rem;  
-    position: relative; 
 }
 
-.highlights a::before{
-    content: '';
-    width: 30px;
-    height: 3px;
-    background: #000;
-    position: absolute;
-    top:48%;
-    left: 0;
-    opacity: .5;
+.playBtn i{
+    font-size: 2.2rem;
+    color: rgb(87, 87, 87);
+    
 }
+.playBtn{
+    display: flex;
+    align-items: start;
+    padding-top: 1.2rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 2s;
+    filter: blur(1px);
+    transform: translateY(20%);
+}
+.show .playBtn{
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+
 
 
 @media only screen and (max-width:968px){
 
     .mainGrid{
         overflow-y: scroll;
+        overflow-x: hidden;
+        scroll-snap-type: none;
+        position: relative;
     }
 
     .mainGrid section{
+        width: 100%;
+        scroll-snap-align: none;
         display: grid;
         grid-template-columns: 1fr;
         grid-row: auto;
-        gap:2rem;
-        padding: 2rem;
         border: none;
-        
-        
+        padding-right: 0;           
     }
     .outerGrid{
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto;
-        /* grid-template-areas: "div1" "div2"; */
         text-align: center;
+        margin: auto;
        
     }
     .outerGrid img{
-        margin: auto;
-        width: 28%;
+        margin: .5rem auto;
+        width: 26%;
         min-width: 200px;
     }
 
     .highlights a{
-        padding: 1.5rem 4rem;
-        font-size: 1.3rem;    
+        font-size: 1.5rem;
     }
-
-    .highlights a::before{
-        content: '';
-        width: 25px;
-        height: 2px;
-        background: #000;
-        position: absolute;
-        top:48%;
-        left: 0;
-        opacity: .5;
-    }
-
     .pageNum {
         display: none
     }
-    
+    .highlights h3{
+        padding-top: 1.8rem;
+        font-size: 20px;
 
-    /* section a{
-        position: absolute;
-        top:95%;
-        left:50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-
-    } */
-    /* .outerGrid #div1{
-        grid-area: div1;
     }
-    .outerGrid #div2{
-        grid-area: div2;
-    } */
-}
 
-@media only screen and (max-width:560px) {
-    .mainGrid section{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-row: auto;
-        gap:2rem;
-        padding: 2rem; 
-        
+    .highlights p{
+        padding: .2rem 6rem;
+        font-size: 15px;
+
     }
-    .outerGrid{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        /* grid-template-areas: "div1" "div2"; */
-        text-align: center;
+
+    .highlights .innerGrid:nth-child(2){
+        padding-left: 0;
+        padding-top: 0;
+    }
+
+    .playBtn {
+        margin: auto;
+        align-items: center;
+    }
+    .mainGrid .button{
+        display: none;
     }
 }
 
+@media only screen and (max-width:578px){
+
+    .mainGrid section {
+         margin: 0;
+    }
+
+    .outerGrid img{
+        margin: 1rem auto;
+        width: 22%;
+        min-width: 165px;
+    }
+        .highlights h3{
+            padding-top: .5rem;
+        }
+
+        .highlights p{
+            padding: 0 1rem;
+        }
+        .highlights .playBtn{
+            margin-top: -.5rem;
+        }
+}
