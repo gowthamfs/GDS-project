@@ -19,25 +19,33 @@
     
 }
 
-#intro{
+#intro {
+    width: 100%;
+    height: auto;
+    display: grid;
+    place-items: center;
+
+}
+
+.outerGrid{
     background: rgb(230, 255, 9);
-    height: 60%;
-    width: 60vw;
-    margin-top: 10rem;
+    height: 70%;
+    width: 65vw;
+    margin-top: 5em;
     margin-right: 5em;
+    padding: 2em;
     display: flex;
     align-items: center;
-    justify-content: space-around;   
-    border-radius: 0 8px 8px 0;
+    justify-content: space-between;  
 }
-.bg-info{
-    color: #000000;
-    transition: all 2s;
-}
+
 
 section .bg-info{
     opacity: 0;
-    transform: translateX(-20%);    
+    transform: translateX(-20%);  
+    color: #000000;
+    transition: all 2s;
+    padding-left: 2em;
 }
 
 .slow .bg-info{
@@ -58,26 +66,24 @@ section .bg-info{
 }
 
 .bg-info h3{
-    font-size: 33px;
+    font-size: 40px;
     padding: 1rem 0;
 }
-
-
-
 .bg-info h4{
+    font-size: 28px;
     color: #2d4760;
     opacity: 0.7;
-    font-size: 25px;
 }
 
 .img-bg {
-    width: 250px;
+    width: 260px;
     height: 280px;
     display: grid;
     align-items: end;
     justify-items: center;
-    margin-top: -6em;
-    margin-right: -5em;
+    margin-top: -8em;
+    margin-right: -4em;
+    margin-left: 1em;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border: none;
@@ -118,6 +124,7 @@ section .bg-info{
     background-position:center;
     background-size: cover;
     object-fit: cover;
+    margin-top: -10em;
 }
 .veena{
     background: url('../img/veena.png');
@@ -125,6 +132,7 @@ section .bg-info{
     background-position:center;
     background-size: cover;
     object-fit: cover;
+    margin-top: -10em;
 }
 .yenn{
     background: url('../img/yenn.png');
@@ -132,6 +140,8 @@ section .bg-info{
     background-position:center;
     background-size: cover;
     object-fit: cover;
+    margin-top: -10em;
+    /* height: 230px !important; */
 }
 
 .place-img .img-bg{
@@ -199,33 +209,51 @@ section .bg-info{
         grid-row: auto;
 
     }
+    .outerGrid{
+        height: 80%;
+        width: 90vw;
+        max-width: 600px;
+        /* margin-right: 0; */
+        /* margin-bottom: 2em; */
+        padding: .5em;
+        border-radius: 8px;
+    }
 
-      #intro{
-        height: 75%;
+    #intro{
+        width: 100%;
+        height: auto;
+    }
+
+      .outerGrid{
+        height: 80%;
         width: 80vw;
-        margin-top: 4em;
-        margin-bottom: 3em;
-        overflow: visible;
+        max-width: 600px;
+        margin-right: 0;
+        margin-bottom: 2em;
+        padding: .5em;
     }
 
     .img-bg{
-        width: 210px;
-        height: 210px;
+        width: 250px;
+        height: 240px;
         background-position: center;
         background-size: cover;
         object-fit: cover;
-        margin-top: -5em;
-        margin-right: -5em;
+        margin-top: -6em;
+        margin-right: -3em;
+        
     }
     .bg-info{
-        padding-left: 5px;
+        padding-left: 0;
     }
     .bg-info h3{
-        font-size: calc(33px - 15%);
+        /* font-size: 30px; */
+        font-size: calc(4.2vw - 1%);
         padding: .6rem 0;
     }
     .bg-info h4{
-        font-size: calc(28px - 15%);
+        /* font-size: 25px; */
+        font-size: calc(3vw - 5%);
     }
 
    .mainGrid section:nth-child(2){
@@ -247,7 +275,59 @@ section .bg-info{
         font-size: 16px;
     }
 
+    .yenn{
+        height: 240px !important;
+        margin-top: -5em;
+    }
+
 
 }  
 
+@media only screen and (max-width:550px){
 
+    .outerGrid{
+        max-width: 450px;
+    }
+    .bg-info h3{
+        font-size: calc(5vw - 2%);
+        padding: .3rem 0;
+    } 
+    
+    .bg-info h4{
+        color: #2d4760;
+        opacity: 0.7;
+        font-size: calc(4vw - 2%);
+    }
+    .bg-info h5::before{
+        content: '';
+        background: #000000;
+        width: 75px;
+        height: 2px;
+        position: absolute;
+        bottom:-15%;
+    }
+
+    .bg-info{
+        padding-left: 0;
+        margin-left: -1em;
+    }
+
+    .img-bg{
+        max-width: 180px;
+        height: 180px;
+        margin-right: -2em;
+        margin-top: -7em;
+    }
+
+    .yenn{
+        background: url('../img/yenn.png');
+        background-repeat: no-repeat;
+        background-position:center;
+        background-size: cover;
+        object-fit: cover;
+        margin-top: -10em;
+        height: 220px !important;
+        margin-top: -5em;
+        margin-right: -2em;
+    }
+}
