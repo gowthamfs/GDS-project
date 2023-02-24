@@ -161,6 +161,18 @@ svg{
   .text h6{
     font-size: 12.5px;
   }
+  .nav-text {
+    z-index: 99;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.9);
+    font-weight: 600;
+    color: #fff;
+    text-align: center;
+    
+  }
 
 @media only screen and (max-width:968px){
     .imgContainer .outerGrid{
