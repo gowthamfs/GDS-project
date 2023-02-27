@@ -19,9 +19,6 @@ svg{
     height: 100vh;
     z-index: 1;
     object-fit: contain;
-    /* background-size: 100%; */
-    /* position: relative; */
-    /* opacity: 0; */
 }
 
 .bgimg{

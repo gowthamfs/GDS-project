@@ -1,39 +1,42 @@
-const leftArrow = document.querySelector(".previous"),
-  rightArrow = document.querySelector(".next"),
-  downArrow = document.querySelector(".down");
+// const leftArrow = document.querySelector(".previous"),
+//   rightArrow = document.querySelector(".next");
+  // downArrow = document.querySelector(".down");
 
- let  main = document.querySelector('.mainGrid');
-
+ let main = document.querySelector('.mainGrid');
+ 
 
 // scrolling Horizontaling
 main.addEventListener('wheel', (e)=>{
-  e.preventDefault();
-  main.scrollTop += e.deltaY;
+    //  e.preventDefault();
+    main.scrollLeft += e.deltaY;
+    if(main.scrollWidth <= 968){
+      main.scrollTop += e.deltaY;
+    }
   
 })
 
 
 
-  function scrollRight() {
-    if (main.offsetWidth === main.scrollRight) {
-        main.scrollTo({
-        left: 0,
-        behavior: "smooth"
-      });
-    } else {
-      main.scrollBy({
-        left: window.innerWidth,
-        behavior: "smooth"
-      });
-    }
-  }
+  // function scrollRight() {
+  //   if (main.offsetWidth === main.scrollRight) {
+  //       main.scrollTo({
+  //       left: 0,
+  //       behavior: "smooth"
+  //     });
+  //   } else {
+  //     main.scrollBy({
+  //       left: window.innerWidth,
+  //       behavior: "smooth"
+  //     });
+  //   }
+  // }
 
-  function scrollLeft() {
-    main.scrollBy({
-      left: -window.innerWidth,
-      behavior: "smooth"
-    });
-  }
+  // function scrollLeft() {
+  //   main.scrollBy({
+  //     left: -window.innerWidth,
+  //     behavior: "smooth"
+  //   });
+  // }
 
   // let timerId = setInterval(scrollRight, 5000);
 
@@ -42,33 +45,29 @@ main.addEventListener('wheel', (e)=>{
   //   timerId = setInterval(scrollRight, 5000);
   // }
 
-  main.addEventListener("click", function (e) {
-    if (e.target === leftArrow) {
-      scrollLeft();
-      // resetTimer();
-      console.log(e)
-    }
-  });
+  // main.addEventListener("click", function (e) {
+  //   if (e.target === leftArrow) {
+  //     scrollLeft();
+  //     // resetTimer();
+  //     console.log(e)
+  //   }
+  // });
 
-  main.addEventListener("click", function (ev) {
-    if (ev.target === rightArrow) {
-      scrollRight();
-      // resetTimer();
+  // main.addEventListener("click", function (ev) {
+  //   if (ev.target === rightArrow) {
+  //     scrollRight();
+  //     // resetTimer();
       
-    }
-  });
+  //   }
+  // });
 
-  main.addEventListener("click", function (ev) {
-    if (ev.target === downArrow) {
-      scrollTop();
-      // resetTimer();
-      
-    }
-  });
+  // if (e.target == downArrow) {
+  //   scrollTop();      
+  // }
 
-
-
-
+  //  main.addEventListener("click", function (ev) {
+    
+  // });
 
 
 
