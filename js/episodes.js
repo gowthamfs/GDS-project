@@ -1,4 +1,4 @@
-let  main = document.querySelector('.mainGrid');
+// let  main = document.querySelector('.mainGrid');
 
 // scrolling Horizontaling 
 // main.addEventListener('wheel', (e)=>{

@@ -137,7 +137,7 @@ svg{
 
 .imgContainer{
     width: 100%;
-    /* height: 100vh; */
+    height: 100vh;
     position: absolute;
     background: #fff;
     top: 0;
@@ -257,7 +257,7 @@ svg{
 
 
 
-section * h3{
+.highlights h3{
     font-size: 20px;
     opacity: 0;
     transition: all 2s;
