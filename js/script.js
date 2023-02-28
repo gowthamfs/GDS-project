@@ -8,11 +8,7 @@
 // scrolling Horizontaling
 main.addEventListener('wheel', (e)=>{
     //  e.preventDefault();
-    main.scrollLeft += e.deltaY;
-    if(main.scrollWidth <= 968){
-      main.scrollTop += e.deltaY;
-    }
-  
+    main.scrollLeft += e.deltaY;  
 })
 
 let menu = document.querySelector('.menu');

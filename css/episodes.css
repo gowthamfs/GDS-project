@@ -160,12 +160,12 @@ section .bg-info{
 }
 
 .img-bg a{
-  font-size: 13px;
+  font-size: 10px;
   margin-bottom: 10px;  
 }
 
 .img-bg i{
-    padding: .8rem 2.3rem;
+    padding: .7rem 2rem;
     background: #ff0000;
     color: #ffffff;
     transition:  1s ease-in;
@@ -199,7 +199,8 @@ section .bg-info{
 @media only screen and (max-width:968px){
 
     .mainGrid{
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: scroll;
         width: 100%;
     }
 
@@ -209,7 +210,6 @@ section .bg-info{
         display: grid;
         grid-template-columns: 1fr;
         grid-row: auto;
-
     }
 
       #intro{
@@ -217,7 +217,6 @@ section .bg-info{
         width: 80vw;
         margin-top: 4em;
         margin-bottom: 3em;
-        overflow: visible;
     }
 
     .img-bg{
@@ -259,7 +258,62 @@ section .bg-info{
         font-size: 16px;
     }
 
-
 }  
 
+@media only screen and (max-width:578px){
+    .mainGrid{
+        overflow-x: hidden;
+        overflow-y: scroll;
+        width: 100%;
+    }
+    #intro{
+        height: 80%;
+        width: 80vw;
+    }
+    .bg-info{
+        padding-left: 15px;
+    }
+    .bg-info h5::before{
+        width: 75px;
+    }
+    .bg-info h3{
+        padding: 0;
+        font-size: 22px;
+    }
+    .bg-info h4{
+        font-size: 18px;
+    }
+    .img-bg{
+        width: 200px;
+        height: 190px;
+        margin-top: -4em;
+        margin-right: -4.5em;
+        background-position: center;
+        background-size: cover;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (max-width:450px){
+    #intro{
+        height: 70%;
+        width: 80vw;
+    }
+    .bg-info h3{
+        padding: 0;
+        font-size: 18px;
+    }
+    .bg-info h4{
+        font-size: 16px;
+    }
+    .img-bg{
+        width: 180px;
+        height: 180px;
+        margin-top: -4em;
+        margin-right: -4em;
+        background-position: center;
+        background-size: cover;
+        object-fit: cover;
+    }
+}
 

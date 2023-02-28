@@ -10,9 +10,7 @@ main.addEventListener('wheel', (e)=>{
 
 
 
-
-
-// // its reflecting every front and back animations
+// its reflecting every front and back animations
 const observer = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
         // let section = document.querySelector(`#${entry.target.id}`);
