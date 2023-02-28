@@ -14,17 +14,17 @@
 body{
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 .mainGrid{
     width: 100vw;
     height: 100vh;
     /* scroll-snap-type: x mandatory; */
-    overscroll-behavior-x: contain;
+    /* overscroll-behavior-x: contain; */
     overflow-x: scroll;
     overflow-y: hidden;
-    scrollbar-width: none;
+    /* scrollbar-width: none; */
 
 }
 
@@ -39,7 +39,7 @@ body{
     grid-row: 1;
     position: relative;
     padding-right: 10rem;
-    margin: 20px 0;
+    /* margin: 20px 0; */
 }
 
 #navbar{
@@ -143,6 +143,7 @@ svg{
     top: 0;
     left: -150vw;
     transition: all 1s ease-in-out;
+    z-index: 90;
 }
 
 
@@ -211,7 +212,7 @@ svg{
 
 
 
-.mainGrid .button i:nth-child(1){
+/* .mainGrid .button i:nth-child(1){
     position: fixed;
     left: 5%;
     bottom: 10%;
@@ -224,7 +225,7 @@ svg{
     bottom: 10%;
     font-size: 25px;
     cursor: pointer;
-}
+} */
 
 .mainGrid .mobBtn i{
     opacity: 0;
@@ -234,6 +235,11 @@ svg{
     border-radius: 10px;
     width: 45%;
     max-width:300px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    transition: all 1s;
+    filter: blur(1px);
+    transform: translateX(-50%);
+    position: relative;
 }
 
 /* section * img{
@@ -321,7 +327,7 @@ section .innerGrid:nth-child(2){
     align-items: start;
     padding-top: 1.2rem;
     cursor: pointer;
-    opacity: 0;
+    /* opacity: 0; */
     transition: all 2s;
     filter: blur(1px);
     transform: translateY(20%);

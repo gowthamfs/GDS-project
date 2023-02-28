@@ -90,7 +90,7 @@ const observer = new IntersectionObserver((entries)=>{
             // page.innerText = section.getAttribute('data-id')
             // page.classList.add('show');
             entry.target.classList.add('show');
-            entry.target.classList.add('slow');
+            // entry.target.classList.add('slow');
 
         } else {
             entry.target.classList.remove('show');
