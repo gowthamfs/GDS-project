@@ -326,7 +326,8 @@ svg{
 .playBtn a{
     padding: 1rem;
     color: rgb(87, 87, 87);
-    font-size: 1.8rem;  
+    font-size: 1.6rem;
+    font-weight: 600;
 }
 
 .playBtn i{
@@ -380,12 +381,12 @@ svg{
     }
 
     .listRow .wrapper{
-    width: 100%;
-    height: auto;    
+    /* width: 100%;
+    height: auto;     */
     }
     .listRow .wrapper:nth-child(1){
-        display: flex;
-        justify-content: center;     
+        /* display: flex;
+        justify-content: center;      */
     }
     .listRow .wrapper:nth-child(2){
         padding: var(--g-sm);
@@ -472,8 +473,6 @@ svg{
     .mainGrid{
         scroll-snap-type: y mandatory;
         overscroll-behavior-y: contain;
-        /* overflow-y: scroll;
-        overflow-x: hidden;      */
     }
 
     .mainGrid section{
@@ -484,12 +483,12 @@ svg{
         grid-template-columns: 1fr;
         grid-row: auto;
     } 
-    section .highlights{
+    /* section .highlights{
         width: 100%;
         height: 100%;
         margin: 2rem auto;
 
-    }
+    } */
 
     /* section .listRow{
         width: 100%;
@@ -501,7 +500,7 @@ svg{
     } */
 
     .listRow img{
-        width: 180px;
+        width: 160px;
 
     }
     .highlights h4{
