@@ -1,15 +1,33 @@
-// const leftArrow = document.querySelector(".previous"),
-//   rightArrow = document.querySelector(".next");
-  // downArrow = document.querySelector(".down");
+const leftArrow = document.querySelector(".previous"),
+  rightArrow = document.querySelector(".next");
+  downArrow = document.querySelector(".down");
 
- let main = document.querySelector('.mainGrid');
- 
+ var main = document.querySelector('.mainGrid');
+var sections = document.querySelectorAll("section");
 
+
+
+let currentPage = 0;
 // scrolling Horizontaling
 main.addEventListener('wheel', (e)=>{
     //  e.preventDefault();
-    main.scrollLeft += e.deltaY;  
+    // main.scrollLeft += e.deltaY;
+    currentPage = Math.round(main.scrollLeft / window.innerWidth);
+    console.log(`Current page: ${currentPage}`);
+    const direction = Math.sign(e.deltaY);
+    
+  if (direction === 1 && currentPage < sections.length - 1) {
+    currentPage++;
+  } else if (direction === -1 && currentPage > 0) {
+    currentPage--;
+  }
+
+  main.scrollLeft = sections[currentPage].offsetLeft;
+
+  console.log(main.scrollLeft)
 })
+
+
 
 let menu = document.querySelector('.menu');
 let imgContainer = document.querySelector('.imgContainer');
@@ -23,26 +41,28 @@ menu.addEventListener('click', () => {
 
 
 
-  // function scrollRight() {
-  //   if (main.offsetWidth === main.scrollRight) {
-  //       main.scrollTo({
-  //       left: 0,
-  //       behavior: "smooth"
-  //     });
-  //   } else {
-  //     main.scrollBy({
-  //       left: window.innerWidth,
-  //       behavior: "smooth"
-  //     });
-  //   }
-  // }
+  function scrollRight() {
+    if (main.offsetWidth === main.scrollRight) {
+        main.scrollTo({
+        left: 0,
+        behavior: "smooth"
+      });
+    } else {
+      main.scrollBy({
+        left: window.innerWidth,
+        behavior: "smooth"
+      });
+    }
+  }
 
-  // function scrollLeft() {
-  //   main.scrollBy({
-  //     left: -window.innerWidth,
-  //     behavior: "smooth"
-  //   });
-  // }
+  function scrollLeft() {
+    main.scrollBy({
+      left: -window.innerWidth,
+      behavior: "smooth"
+    });
+  }
+
+
 
   // let timerId = setInterval(scrollRight, 5000);
 
@@ -51,29 +71,22 @@ menu.addEventListener('click', () => {
   //   timerId = setInterval(scrollRight, 5000);
   // }
 
-  // main.addEventListener("click", function (e) {
-  //   if (e.target === leftArrow) {
-  //     scrollLeft();
-  //     // resetTimer();
-  //     console.log(e)
-  //   }
-  // });
-
-  // main.addEventListener("click", function (ev) {
-  //   if (ev.target === rightArrow) {
-  //     scrollRight();
-  //     // resetTimer();
+  main.addEventListener("click", function (e) {
+    if (e.target === leftArrow) {
+      scrollLeft();
+      // resetTimer();
       
-  //   }
-  // });
+    }
+  });
 
-  // if (e.target == downArrow) {
-  //   scrollTop();      
-  // }
+  main.addEventListener("click", function (ev) {
+    if (ev.target === rightArrow) {
+      scrollRight();
+      // resetTimer();
+      
+    }
+  });
 
-  //  main.addEventListener("click", function (ev) {
-    
-  // });
 
 
 

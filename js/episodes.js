@@ -1,11 +1,11 @@
 let  main = document.querySelector('.mainGrid');
 
 // scrolling Horizontaling 
-main.addEventListener('wheel', (e)=>{
-    let left = main.scrollLeft += e.deltaY;
-    let Top = main.scrollTop += e.deltaY;
-    return (main.scrollWidth >= 968 ? 'left' : 'Top');
-})
+// main.addEventListener('wheel', (e)=>{
+//     let left = main.scrollLeft += e.deltaY;
+//     let Top = main.scrollTop += e.deltaY;
+//     return (main.scrollWidth >= 968 ? 'left' : 'Top');
+// })
 
 
 
