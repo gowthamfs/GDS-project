@@ -18,9 +18,11 @@ main.addEventListener('wheel', (e)=>{
     
   if (direction === 1 && currentPage < sections.length - 1) {
     currentPage++;
+
   } else if (direction === -1 && currentPage > 0) {
     currentPage--;
   }
+
 
   main.scrollLeft = sections[currentPage].offsetLeft;
 
@@ -30,14 +32,39 @@ main.addEventListener('wheel', (e)=>{
 
 
 let menu = document.querySelector('.menu');
-let imgContainer = document.querySelector('.imgContainer');
+// let imgContainer = document.querySelector('.imgContainer');
 let centerText = document.querySelector(".nav-text")
+let click = document.querySelector('.clicked')
 
-menu.addEventListener('click', () => {
-    menu.classList.toggle("clicked")
-    imgContainer.classList.toggle("open")
-    centerText.classList.toggle('opacity')
+// menu.addEventListener('click', () => {
+//     menu.classList.toggle("clicked")
+//     imgContainer.classList.add("open")
+//     imgContainer.classList.remove("open")
+//     centerText.classList.toggle('opacity')
+
+// })
+
+// menu.addEventListener('click',()=>{
+//   menu.classList.toggle('clicked');
+//   imgContainer.classList.toggle("open")
+// })
+
+
+const open = document.getElementById("open")
+const close = document.getElementById("close")
+const imgContainer = document.querySelector(".imgContainer")
+
+open.addEventListener("click", () => {
+  open.classList.add('opacity')
+  imgContainer.classList.add("modal-open")
 })
+
+close.addEventListener("click", () => {
+  imgContainer.classList.remove("modal-open")
+  open.classList.remove('opacity')
+})
+
+
 
 
 
@@ -63,14 +90,6 @@ menu.addEventListener('click', () => {
   }
 
 
-
-  // let timerId = setInterval(scrollRight, 5000);
-
-  // function resetTimer() {
-  //   clearInterval(timerId);
-  //   timerId = setInterval(scrollRight, 5000);
-  // }
-
   main.addEventListener("click", function (e) {
     if (e.target === leftArrow) {
       scrollLeft();
@@ -87,6 +106,12 @@ menu.addEventListener('click', () => {
     }
   });
 
+    // let timerId = setInterval(scrollRight, 5000);
+
+  // function resetTimer() {
+  //   clearInterval(timerId);
+  //   timerId = setInterval(scrollRight, 5000);
+  // }
 
 
 
@@ -95,10 +120,11 @@ const observer = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
         // let section = document.querySelector(`#${entry.target.id}`);
         // let page = document.querySelector(`#${section.id} .pageNum`)
+          console.log(entry)
         if(entry.isIntersecting){
             // page.innerText = section.getAttribute('data-id')
             // page.classList.add('show');
-            entry.target.classList.add('show');
+            entry.target.classList.toggle('show');
             // entry.target.classList.add('slow');
 
         } else {

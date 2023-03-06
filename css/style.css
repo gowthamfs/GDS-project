@@ -27,7 +27,8 @@ body{
     display: grid;
     grid-row: 1;
     grid-template-columns: 1fr auto;
-    overflow-y: hidden;   
+    overflow-y: hidden; 
+    position: relative;  
     
 }
 
@@ -41,51 +42,37 @@ body{
     position: relative;
 }
 
-  
-
-
-section .listRow{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.highlights .outerGrid{
+    padding: var(--g-lg);
 }
 
-.listRow .wrapper{
-    width: 100%;
-    
-}
-.listRow .wrapper:nth-child(1){
-    display: flex;
-    justify-content: end;
-}
-.listRow .wrapper:nth-child(2){
-    padding: var(--g-xs);
-}
-
-.listRow img{
-    width: 42%;
-    max-width:300px;
+.highlights .wrapper img{
+    width: 280px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
-    transition: all 1s;
+    transition: all 3s;
     opacity: 0;
     filter: blur(1px);
     transform: translateX(-50%);
     border-radius: 10px;
 }
 
-.show img{
+.highlights .wrapper:nth-child(2){
+    padding: var(--g-sm);
+}
+
+.show.highlights img{
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
     filter: blur(0);
 }
 
 
 svg{
     width:100%;
-    height: 100vh;
+    height: 100%;
     object-fit: contain;
+    position: absolute;
+    top:0;
 }
 
 .bgimg{
@@ -119,80 +106,59 @@ svg{
     right:0;
 }
 
-.menu{
-    position: absolute;
-    top:5%;
-    right: 5%;
-    z-index: 99;
 
-}
 
-.menu div{
-    margin-bottom: 4px;
+.menu i{
+    font-size: 30px;
     cursor: pointer;
-    background: #000000;
-    transition: 1s ease-in-out;
-    
-}
-
-.menu div:nth-child(1){
-    width: 30px;
-    height: 3.5px;
-}
-.menu div:nth-child(2){
-    width: 30px;
-    height: 4px;
-}
-.menu div:nth-child(3){
-    width: 30px;
-    height: 4px;
-}
-
-.clicked div:nth-child(1) {
-    width: 30px;
-    height: 5px;
-    transform: rotate(40deg);
-    margin-top: 1.3rem;
-}
-.clicked div:nth-child(2) {
-    opacity: 0;
-}
-.clicked div:nth-child(3) {
-    width: 30px;
-    height: 5px;
-    margin-top: -1.65rem;
-    transform: rotate(-42deg);
+    z-index: 90;
+    position: absolute;
+    top:2%;
+    right: 2%;
 }
 
 .imgContainer{
     width: 100vw;
     height: 100%;
-    position: absolute;
     background: #fff;
-    top: 0;
-    left: -120%;
-    transition: all 1s ease-in-out;
-    z-index: 5;
+    position: fixed;
+    transition: all .5s;
+    padding: var(--g-sm);
+    opacity: 0;
+    transition: all .3s ease;
+    overflow: hidden;
+
 }
 
+
+.imgContainer.modal-open {
+    opacity: 1;
+    z-index: 99;
+    transition: all .3s ease-in;
+}
+
+.imgContainer .close-btn i{
+    position: absolute;
+    top:2%;
+    right: 2%;
+    font-size: 32px;
+    cursor: pointer;
+    /* transition: all .3s ease-in-out; */
+}
+
+
+
 .imgContainer img {
-    width: 100%;
-    height: 275px;
+    width: 90%;
+    height: 270px;
     padding: 1rem;
+    margin: auto;
     opacity: 0.6;
     display: grid;
     place-items: center;
 }
 
-.open{
-    position: absolute;
-    background: #fff;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: all 1s ease-in-out;
-}
+
 .imgContainer a{
     transition: .3s ease-in-out;
 }
@@ -205,7 +171,7 @@ svg{
 .imgContainer .text{
     width: 100%;
     position: absolute;
-    top:70%;
+    top: 70%;
     text-align: center;
     transition: .3s ease-in-out;
 }
@@ -221,7 +187,7 @@ svg{
 
   .text h3{
     font-size: 20px;
-    padding: 0 1rem;
+    margin: 0;
   }
   .text h6{
     font-size: 12.5px;
@@ -241,7 +207,7 @@ svg{
 
   .opacity {
     opacity: 0;
-    transition: all 1s;
+    transition: all .5s;
   }
 
 
@@ -305,8 +271,8 @@ svg{
 
 .highlights .pageNum {
     position: absolute;
-    top: 15%;
-    left: 5%;
+    top: 12%;
+    left: 2%;
     font-size: 160px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(0, 0, 0);
@@ -359,6 +325,9 @@ svg{
 
 @media only screen and (max-width:968px){
 
+    ::-webkit-scrollbar {
+        display: none;
+    }
     .mainGrid{  
         scroll-snap-type: y mandatory;
         overscroll-behavior-y: contain;
@@ -373,25 +342,30 @@ svg{
         display: grid;
         grid-row: auto;
         grid-column: 1;
+        grid-row-gap: 2rem;
     }
 
-    section .listRow{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
+    .highlights .outerGrid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: auto;
+        place-items: center;
+        
     }
 
+    .highlights .outerGrid .wrapper:nth-child(1){
+        display: grid;
+        justify-self: center;
+    }
 
-    .listRow .wrapper:nth-child(2){
+    .highlights .outerGrid .wrapper:nth-child(2){
         padding: var(--g-sm);
         text-align: center;
     }
 
-    section .highlights{
-        margin: 0;
+    .highlights .wrapper img{
+        width: 200px;
+        min-width: 150px;
     }
 
     .playBtn{
@@ -400,11 +374,9 @@ svg{
         justify-content: center;
     }
 
-    .listRow img{
-        margin: 1rem auto;
-        width: 200px;
-
-    }
+    /* .highlights .outerGrid img{
+        width: 220px;
+    } */
 
     .pageNum {
         display: none
@@ -449,7 +421,7 @@ svg{
         place-items: center;
         grid-template-columns: 1fr 1fr;
         grid-row: auto;
-        overflow-y: scroll;
+        overflow-y: scroll;   
         margin-top: 1em;
         padding: var(--g-sm);
     }
@@ -480,28 +452,23 @@ svg{
         display: grid;
         grid-row: auto;
         grid-column: 1;
-        overflow-x: hidden;
+
     } 
-    /* section .highlights{
-        width: 100%;
-        height: 100%;
-        margin: 2rem auto;
 
-    } */
-
-    /* section .listRow{
-        width: 100%;
-        height: 100%;
+    .highlights .outerGrid{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row: auto;
+        place-items: center;
+        /* margin: 1rem auto;  */
     }
-    .listRow .wrapper:nth-child(2){
-        width: 100%;
-        height: 100%;
-    } */
-
-    .listRow img{
+    .highlights .outerGrid img{
         width: 160px;
-
     }
+    /* .highlights .outerGrid .wrapper:nth-child(1){
+        width: 100%;
+    } */
+
     .highlights h4{
         font-size: 28px;
 
@@ -533,4 +500,29 @@ svg{
         font-size: 25px;
     }
         
+}
+
+@media only screen and (max-width:450px){
+    .mainGrid{
+        width: 100%;
+        height: 100vh;
+        scroll-snap-type: y mandatory;
+        display: grid;
+        overflow-y: scroll;
+        overflow-x: hidden;       
+    }
+
+    .mainGrid section{
+        width: 100vw;
+        height: 100vh;
+        scroll-snap-align: center;
+        display: grid;
+        position: relative;
+        grid-row: auto;
+        grid-column: 1;
+    }
+
+    .highlights .outerGrid{
+        margin: 1em auto; 
+    }
 }
