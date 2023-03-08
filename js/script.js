@@ -25,43 +25,34 @@ main.addEventListener('wheel', (e)=>{
 
 
   main.scrollLeft = sections[currentPage].offsetLeft;
-
   console.log(main.scrollLeft)
 })
 
 
-
-let menu = document.querySelector('.menu');
-// let imgContainer = document.querySelector('.imgContainer');
-let centerText = document.querySelector(".nav-text")
-let click = document.querySelector('.clicked')
-
-// menu.addEventListener('click', () => {
-//     menu.classList.toggle("clicked")
-//     imgContainer.classList.add("open")
-//     imgContainer.classList.remove("open")
-//     centerText.classList.toggle('opacity')
-
-// })
-
-// menu.addEventListener('click',()=>{
-//   menu.classList.toggle('clicked');
-//   imgContainer.classList.toggle("open")
-// })
+// scrolling full page on key press
+window.addEventListener('keydown', function(e) {
+  if (e.keyCode == 37) { // Left arrow key
+    main.scrollLeft -= main.offsetWidth;
+  } else if (e.keyCode == 39) { // Right arrow key
+    main.scrollLeft += main.offsetWidth;
+  }
+});
 
 
+
+
+
+// navigation menu click event
 const open = document.getElementById("open")
 const close = document.getElementById("close")
 const imgContainer = document.querySelector(".imgContainer")
 
 open.addEventListener("click", () => {
-  open.classList.add('opacity')
   imgContainer.classList.add("modal-open")
 })
 
 close.addEventListener("click", () => {
   imgContainer.classList.remove("modal-open")
-  open.classList.remove('opacity')
 })
 
 
@@ -120,7 +111,7 @@ const observer = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
         // let section = document.querySelector(`#${entry.target.id}`);
         // let page = document.querySelector(`#${section.id} .pageNum`)
-          console.log(entry)
+          // console.log(entry)
         if(entry.isIntersecting){
             // page.innerText = section.getAttribute('data-id')
             // page.classList.add('show');
